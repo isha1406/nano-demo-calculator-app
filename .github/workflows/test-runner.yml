@@ -2,9 +2,15 @@ name: Run All Tests
 
 on:
   push:
+<<<<<<< HEAD
     branches: [ main ]
   pull_request:
     branches: [ main ]
+=======
+    branches: [ main, node ]
+  pull_request:
+    branches: [ main, node ]
+>>>>>>> parent of 87bcf22 (Enable runners for cpp)
 
 jobs:
   build:
@@ -15,8 +21,12 @@ jobs:
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
+<<<<<<< HEAD
           java-version: '17'
           distribution: 'temurin'
+=======
+          ref: node
+>>>>>>> parent of 87bcf22 (Enable runners for cpp)
       - name: run tests
         run: |
           newman_collectionName=calculator-tests iterationCount=1 web_app_cpu='2' test_driver_cpu='2' docker-compose -f compose-file.yml up --exit-code-from test-driver --build
